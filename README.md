@@ -5,7 +5,7 @@
 </p>
 
 
-The bangladesh package provides ready-to-use shapefiles for different
+The bangladeshPLUS package provides ready-to-use shapefiles for different
 administrative regions of Bangladesh (e.g., Division, District, Upazila,
 and Union). Usually, it is difficult to plot choropleth maps for
 Bangladesh in R. This package will help users to draw thematic maps of
@@ -75,7 +75,7 @@ interactive (view) it returns a
 
 ``` r
 library(tmap)
-population <- bangladesh::pop_district_2011[, c("district", "population")]
+population <- bangladeshPLUS::pop_district_2011[, c("district", "population")]
 district <- get_map("district")
 
 map_data <- dplyr::left_join(district, population, by = c("District" = "district"))
@@ -121,11 +121,11 @@ ggplot(data = map_data) +
 It is also possible to get the approximate center points (centroids) of
 administrative regions easily
 
-by using `get_coordinates()` function in `bangladesh` package.
+by using `get_coordinates()` function in `bangladeshPLUS` package.
 
 ``` r
 division_map <- get_map("division")
-division_centroids <- bangladesh::get_coordinates(level = "division")
+division_centroids <- bangladeshPLUS::get_coordinates(level = "division")
 knitr::kable(division_centroids, format = "html")
 ```
 
@@ -391,7 +391,7 @@ Amtali
 </table>
 
 ``` r
-ggplot(bangladesh::map_union) +
+ggplot(bangladeshPLUS::map_union) +
   geom_sf() +
   geom_point(data = amtali, x = amtali$lon, y = amtali$lat, col = "red", size = 3) 
 ```
