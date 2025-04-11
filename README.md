@@ -1,5 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<p align="center">
+  <img src="https://x2fwbhwcpl.ufs.sh/f/B0R8RonUsFJWRZSE8gpG0SosIQUCvWftVcdLYK6gxMqTapyD" width="150"/>
+</p>
+
 
 The bangladesh package provides ready-to-use shapefiles for different
 administrative regions of Bangladesh (e.g., Division, District, Upazila,
@@ -18,14 +22,20 @@ This packages comes with sf objects for administrative levels 0-4
 the shapefile for a level is to is to use `get_map()` function.
 
 ``` r
-# remotes::install_github("ovirahman/bangladesh")
-library(bangladesh)
+library(remotes)
+remotes::install_github("sabberrahman/bangladeshPLUS")
 
+library(bangladeshPLUS)
 country <- get_map("country")
 division <- get_map("division")
 district <- get_map("district")
 upazila <- get_map("upazila")
 union <- get_map("union")
+
+all_data <-get_bandarban_map()
+Lama_upazila_data <-get_bandarban_map(upazila ="Lama")
+Kurukpata_union_data <-get_bandarban_map(upazila ="Alikadam", union ="Kurukpata")
+
 ```
 
 ## Plotting Map
