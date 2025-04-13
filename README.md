@@ -397,3 +397,25 @@ ggplot(bangladeshPLUS::map_union) +
 ```
 
 <img src="man/figures/README-search-1.png" style="display: block; margin: auto;" />
+
+## To fix shinyyapp.io deployment 
+
+```r
+#hide install_github() before deploying, server will make a buddle from your local files
+# dont install_github(), server will lose connection while deploying
+#remotes::install_github("sabberrahman/bangladeshPLUS")
+library(bangladeshPLUS)
+```
+
+```r
+remotes::install_github("yourusername/yourpackage")
+
+rsconnect::deployApp(
+  appDir = "~/path-to-your-app",
+  appPrimaryDoc = "main.Rmd",
+  account = "your_shinyapps_account",
+  server = "shinyapps.io"
+)
+
+```
+
